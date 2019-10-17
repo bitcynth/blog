@@ -24,7 +24,7 @@ func GetSitemap(rw http.ResponseWriter, req *http.Request) {
 	rw.Write([]byte("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\r\n"))
 	for _, v := range posts {
 		if !strings.HasPrefix(v.Slug, "DRAFT-") {
-			rw.Write([]byte(fmt.Sprintf(" <url><loc>https://blog.benjojo.co.uk/post/%s</loc> </url>\r\n", v.Slug)))
+			rw.Write([]byte(fmt.Sprintf(" <url><loc>https://blog.cynthia.re/post/%s</loc> </url>\r\n", v.Slug)))
 		}
 	}
 	rw.Write([]byte("</urlset>"))

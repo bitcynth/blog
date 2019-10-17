@@ -1,17 +1,19 @@
 package bnblog
 
 import (
-	"appengine"
-	"appengine/datastore"
-	"appengine/user"
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
-	"github.com/codegangsta/martini"
 	"net/http"
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/codegangsta/martini"
+
+	"appengine"
+	"appengine/datastore"
+	"appengine/user"
 )
 
 func PublishPost(rw http.ResponseWriter, req *http.Request, params martini.Params) {
@@ -22,7 +24,7 @@ func PublishPost(rw http.ResponseWriter, req *http.Request, params martini.Param
 		return
 	}
 
-	if fmt.Sprintf("%s", u) != "ben@benjojo.co.uk" && fmt.Sprintf("%s", u) != "ben@benjojo.com" {
+	if fmt.Sprintf("%s", u) != "me@cynthia.re" {
 		http.Error(rw, fmt.Sprintf("wat? %s", u), http.StatusForbidden)
 		return
 	}
@@ -42,7 +44,7 @@ func PublishPost(rw http.ResponseWriter, req *http.Request, params martini.Param
 	}
 
 	NP := Post{
-		Author:  "Benjojo",
+		Author:  "Cynthia",
 		Content: base64.StdEncoding.EncodeToString([]byte(req.PostFormValue("post"))),
 		Date:    postdate,
 		Slug:    postslug,
@@ -67,7 +69,7 @@ func RemovePost(rw http.ResponseWriter, req *http.Request, params martini.Params
 		return
 	}
 
-	if fmt.Sprintf("%s", u) != "ben@benjojo.co.uk" && fmt.Sprintf("%s", u) != "ben@benjojo.com" {
+	if fmt.Sprintf("%s", u) != "me@cynthia.re" {
 		http.Error(rw, fmt.Sprintf("wat? %s", u), http.StatusForbidden)
 		return
 	}
@@ -87,7 +89,7 @@ func Run_GC(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	if fmt.Sprintf("%s", u) != "ben@benjojo.co.uk" && fmt.Sprintf("%s", u) != "ben@benjojo.com" {
+	if fmt.Sprintf("%s", u) != "me@cynthia.re" {
 		http.Error(rw, fmt.Sprintf("wat? %s", u), http.StatusForbidden)
 		return
 	}

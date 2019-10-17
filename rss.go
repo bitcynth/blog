@@ -17,10 +17,10 @@ import (
 func GetRSS(rw http.ResponseWriter, req *http.Request) {
 	now := time.Now()
 	feed := &feeds.Feed{
-		Title:       "benjojo blog",
-		Link:        &feeds.Link{Href: "https://blog.benjojo.co.uk"},
+		Title:       "cynthia's blog",
+		Link:        &feeds.Link{Href: "https://blog.cynthia.re"},
 		Description: "Programming, Networking and some things I found hard to fix at some point",
-		Author:      &feeds.Author{"Ben Cartwright-Cox", "ben@benjojo.co.uk"},
+		Author:      &feeds.Author{"Cynthia Revström", "me@cynthia.re"},
 		Created:     now,
 	}
 
@@ -48,9 +48,9 @@ func GetRSS(rw http.ResponseWriter, req *http.Request) {
 			postd, _ := base64.StdEncoding.DecodeString(v.Content)
 			wot := &feeds.Item{
 				Title:       v.Title,
-				Link:        &feeds.Link{Href: fmt.Sprintf("https://blog.benjojo.co.uk/post/%s", v.Slug)},
+				Link:        &feeds.Link{Href: fmt.Sprintf("https://blog.cynthia.re/post/%s", v.Slug)},
 				Description: string(postd[:256]),
-				Author:      &feeds.Author{"ben@benjojo.co.uk", "ben@benjojo.co.uk"},
+				Author:      &feeds.Author{"me@cynthia.re", "me@cynthia.re"},
 				Created:     v.Date,
 				Id:          generateBadUUID(v.Title),
 			}

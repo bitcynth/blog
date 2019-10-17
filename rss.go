@@ -1,4 +1,4 @@
-package bnblog
+package main
 
 import (
 	"crypto/md5"

@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"strings"
 	"text/template"
 	"time"
@@ -60,6 +62,15 @@ func main() {
 	m.Use(martini.Static("public2"))
 
 	http.Handle("/", m)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
+	}
+
+	log.Printf("Listening on port %s", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), m))
 }
 
 func ReadPost(rw http.ResponseWriter, req *http.Request, params martini.Params) {

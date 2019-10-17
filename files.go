@@ -8,13 +8,13 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"cloud.google.com/go/storage"
 	"golang.org/x/net/context"
 	"google.golang.org/api/iterator"
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/file"
 	"google.golang.org/appengine/log"
 	"google.golang.org/appengine/user"
-	"google.golang.org/cloud/storage"
 )
 
 func UploadFile(rw http.ResponseWriter, req *http.Request, params martini.Params) {

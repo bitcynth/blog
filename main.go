@@ -34,7 +34,7 @@ type PostFormatted struct {
 	Title   string
 }
 
-func init() {
+func main() {
 	m := martini.Classic()
 	m.Get("/post/:name", ReadPost)
 	m.Get("/raw/:name", ReadRawPost)

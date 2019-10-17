@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 
-	"appengine"
-	"appengine/datastore"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
 )
 
 func Producebackup(rw http.ResponseWriter, req *http.Request) {

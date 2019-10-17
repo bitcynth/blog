@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"appengine"
-	"appengine/datastore"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
 )
 
 func GetSitemap(rw http.ResponseWriter, req *http.Request) {

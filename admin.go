@@ -11,9 +11,9 @@ import (
 
 	"github.com/codegangsta/martini"
 
-	"appengine"
-	"appengine/datastore"
-	"appengine/user"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
+	"google.golang.org/appengine/user"
 )
 
 func PublishPost(rw http.ResponseWriter, req *http.Request, params martini.Params) {

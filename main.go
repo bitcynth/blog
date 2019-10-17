@@ -11,8 +11,8 @@ import (
 	"github.com/codegangsta/martini"
 	"github.com/russross/blackfriday"
 
-	"appengine"
-	"appengine/datastore"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
 )
 
 var PostTemplate = template.Must(template.ParseFiles("public2/pagetempl.html"))
